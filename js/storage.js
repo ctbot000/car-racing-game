@@ -6,7 +6,7 @@
 // session. The values live in memory; storage is write-through, and losing it
 // costs persistence across reloads and nothing else.
 
-const KEY = "neon-drift.best.v1";
+const KEY = "sunset-circuit.best.v1";
 
 const EMPTY = { score: 0, distance: 0, laps: 0, bestLap: null, streak: 0 };
 

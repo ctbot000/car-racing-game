@@ -1,4 +1,4 @@
-/* Neon Drift — a sunset arcade racer.
+/* Sunset Circuit — a sunset arcade racer.
    The stage is a fixed-aspect box sized in script (see main.js): there is no
    robust pure-CSS way to fit a ratio inside a box bounded on both axes, and a
    flex item that grows makes `aspect-ratio` inert. Overlay chrome is then sized

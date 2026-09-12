@@ -1,4 +1,4 @@
-# Neon Drift
+# Sunset Circuit
 
 A pseudo-3D arcade racer that runs in the browser. No build step, no
 dependencies, no image files — the road is projected segment by segment and

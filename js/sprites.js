@@ -272,10 +272,10 @@ function drawBillboard(ctx, w, h) {
   ctx.font = `700 ${Math.round(h * 0.17)}px ${FONT}`;
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  ctx.fillText("NEON", w * 0.5, by + bh * 0.35);
+  ctx.fillText("SUNSET", w * 0.5, by + bh * 0.35);
   ctx.fillStyle = "#ffd166";
   ctx.font = `700 ${Math.round(h * 0.12)}px ${FONT}`;
-  ctx.fillText("DRIFT", w * 0.5, by + bh * 0.68);
+  ctx.fillText("CIRCUIT", w * 0.5, by + bh * 0.68);
 }
 
 function drawLamp(ctx, w, h) {
