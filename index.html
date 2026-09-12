@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <title>Neon Drift — arcade racer</title>
+    <meta
+      name="description"
+      content="Neon Drift is a pseudo-3D arcade racer: beat the clock through traffic on a sunset circuit."
+    />
+    <meta name="theme-color" content="#140a2e" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23140a2e'/%3E%3Cpath d='M4 22h24' stroke='%23ff4d6d' stroke-width='3'/%3E%3Cpath d='M9 17h14l2 4H7z' fill='%236ff0ff'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="stage" class="stage">
+        <canvas id="view" aria-label="Race view"></canvas>
+
+        <div id="hud" class="hud" hidden>
+          <div class="hud-cell hud-lap">
+            <span class="label">Lap</span>
+            <strong id="lap-number">1</strong>
+            <span class="sub"><span id="lap-time">0:00.00</span></span>
+            <span class="sub dim">best <span id="best-lap">--:--.--</span></span>
+          </div>
+
+          <div class="hud-cell hud-clock">
+            <span class="label">Time</span>
+            <strong id="clock">30.0</strong>
+            <div class="bar"><i id="clock-bar"></i></div>
+          </div>
+
+          <div class="hud-cell hud-score">
+            <span class="label">Score</span>
+            <strong id="score">0</strong>
+            <span class="sub" id="multiplier" hidden>×1.0</span>
+          </div>
+
+          <div class="hud-cell hud-speed">
+            <strong id="speed">0</strong>
+            <span class="label">km/h</span>
+            <span class="sub" id="streak" hidden>0 clean passes</span>
+          </div>
+        </div>
+
+        <div id="toasts" class="toasts" aria-live="polite" aria-atomic="false"></div>
+        <div id="countdown" class="countdown" hidden aria-hidden="true"></div>
+
+        <div id="pads" class="pads" hidden>
+          <div class="pad-cluster">
+            <button type="button" class="pad" data-pad="left" aria-label="Steer left">◀</button>
+            <button type="button" class="pad" data-pad="right" aria-label="Steer right">▶</button>
+          </div>
+          <div class="pad-cluster">
+            <button type="button" class="pad pad-brake" data-pad="brake" aria-label="Brake">BRAKE</button>
+          </div>
+        </div>
+
+        <div class="corner-controls">
+          <button type="button" id="btn-mute" class="icon-btn" aria-pressed="false" title="Mute (M)">
+            <span aria-hidden="true">♪</span><span class="sr-only">Toggle sound</span>
+          </button>
+          <button type="button" id="btn-pause" class="icon-btn" hidden title="Pause (P)">
+            <span aria-hidden="true">❚❚</span><span class="sr-only">Pause</span>
+          </button>
+        </div>
+
+        <section id="panel-title" class="panel">
+          <h1 class="wordmark"><span>NEON</span><em>DRIFT</em></h1>
+          <p class="tagline">Beat the clock through traffic. Every checkpoint buys you time — and buys you less of it each lap.</p>
+          <button type="button" id="btn-start" class="primary">Start race</button>
+          <dl class="keys">
+            <div><dt>◀ ▶ / A D</dt><dd>Steer</dd></div>
+            <div><dt>▲ / W</dt><dd>Throttle</dd></div>
+            <div><dt>▼ / S / Space</dt><dd>Brake</dd></div>
+            <div><dt>P</dt><dd>Pause</dd></div>
+          </dl>
+          <p class="record" id="title-record" hidden></p>
+        </section>
+
+        <section id="panel-paused" class="panel" hidden>
+          <h2>Paused</h2>
+          <button type="button" id="btn-resume" class="primary">Resume</button>
+          <button type="button" id="btn-quit" class="ghost">Give up</button>
+        </section>
+
+        <section id="panel-over" class="panel" hidden>
+          <h2 id="over-heading">Time up</h2>
+          <p class="final-score"><span id="final-score">0</span><small>points</small></p>
+          <dl class="summary">
+            <div><dt>Distance</dt><dd id="final-distance">0 m</dd></div>
+            <div><dt>Laps</dt><dd id="final-laps">0</dd></div>
+            <div><dt>Best lap</dt><dd id="final-bestlap">--:--.--</dd></div>
+            <div><dt>Best streak</dt><dd id="final-streak">0</dd></div>
+          </dl>
+          <p class="record" id="over-record" hidden></p>
+          <button type="button" id="btn-again" class="primary">Race again</button>
+        </section>
+      </div>
+    </div>
+
+    <noscript>
+      <p style="color: #eef1fb; text-align: center; padding: 2rem">
+        Neon Drift needs JavaScript to run.
+      </p>
+    </noscript>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
